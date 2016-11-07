@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Calculadora</string>
     <string name="action_settings">Settings</string>
+    <string name="porciento">%</string>
+    <string name="raiz">√</string>
+    <string name="cero">C</string>
+    <string name="borrar">borrar</string>
 </resources>

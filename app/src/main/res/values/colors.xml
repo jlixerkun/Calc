@@ -3,4 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorBorder">#707070</color>
+    <color name="colorDanger">#ff0505</color>
+    <color name="colorDangerDk">#d60000</color>
+    <color name="colorWarn">#e9b634</color>
+    <color name="colorWarnDk">#e9b021</color>
+    <color name="colorSuccess">#8ce921</color>
+    <color name="colorSuccessDk">#75ce0f</color>
+    <color name="colorlightBg">#ececec</color>
+    <color name="colorDarkBg">#303030</color>
 </resources>
