@@ -9,7 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Stack;
+
 public class MainActivity extends AppCompatActivity {
+
+    float valor1, valor2;
+    boolean suma, resta, multiplicacion, division, raiz, porciento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         /* Definimos los botones de la calculadora */
         final Button btnNum0 = (Button) findViewById(R.id.btnNum0);
@@ -31,45 +38,204 @@ public class MainActivity extends AppCompatActivity {
         final Button btnNum9 = (Button) findViewById(R.id.btnNum9);
         final Button btnPunto = (Button) findViewById(R.id.btnPunto);
 
-        Button btnPorciento = (Button) findViewById(R.id.btnPorciento);
-        Button btnMas = (Button) findViewById(R.id.btnMas);
-        Button btnMenos = (Button) findViewById(R.id.btnMenos);
-        Button btnPor = (Button) findViewById(R.id.btnPor);
-        Button btnDividido = (Button) findViewById(R.id.btnDividido);
-        Button btnBorrar = (Button) findViewById(R.id.btnBorrar);
-        Button btnCero= (Button) findViewById(R.id.btnCero);
-        Button btnRaiz= (Button) findViewById(R.id.btnRaiz);
+        final Button btnMas = (Button) findViewById(R.id.btnMas);
+        final Button btnMenos = (Button) findViewById(R.id.btnMenos);
+        final Button btnPor = (Button) findViewById(R.id.btnPor);
+        final Button btnDividido = (Button) findViewById(R.id.btnDividido);
+        final Button btnPorciento = (Button) findViewById(R.id.btnPorciento);
+        final Button btnIgual = (Button) findViewById(R.id.btnIgual);
+        final Button btnBorrar = (Button) findViewById(R.id.btnBorrar);
+        final Button btnCero= (Button) findViewById(R.id.btnCero);
+        final Button btnRaiz= (Button) findViewById(R.id.btnRaiz);
 
 //        Definimos el display  donde se ven las operaciones
         final TextView display = (TextView) findViewById(R.id.textViewMain);
 
 
 
-//        Definimos un stack para mostrar todos los numeros
+// BOTONES NUMÉRICOS
+
 
         btnNum0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void  onClick(View view){
-                display.setText(btnNum0.getText());
+                display.setText(display.getText()+"0");
             }
         });
+
         btnNum1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void  onClick(View view){
-                display.setText(btnNum1.getText());
+                display.setText(display.getText()+"1");
+            }
+        });
+        btnNum2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void  onClick(View view){
+                display.setText(display.getText()+"2");
             }
         });
 
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+        btnNum3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void  onClick(View view){
+                display.setText(display.getText()+"3");
+            }
+        });
+
+        btnNum4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void  onClick(View view){
+                display.setText(display.getText()+"4");
+            }
+        });
+
+        btnNum5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void  onClick(View view){
+                display.setText(display.getText()+"5");
+            }
+        });
+
+        btnNum6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void  onClick(View view){
+                display.setText(display.getText()+"6");
+            }
+        });
+
+        btnNum7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void  onClick(View view){
+                display.setText(display.getText()+"7");
+            }
+        });
+
+        btnNum8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void  onClick(View view){
+                display.setText(display.getText()+"8");
+            }
+        });
+
+        btnNum9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void  onClick(View view){
+                display.setText(display.getText()+"9");
+            }
+        });
+
+        btnPunto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void  onClick(View view){
+                display.setText(display.getText()+".");
+            }
+        });
+
+
+//        BOTONES DE OPERACIONES
+
+        btnCero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                display.setText(null);
+            }
+        });
+
+        btnMas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(display == null){
+                    display.setText("");
+                } else {
+                    valor1 = Float.parseFloat(display.getText() + "");
+                    suma = true;
+                    display.setText(null);
+                }
+            }
+        });
+
+        btnMenos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                valor1 = Float.parseFloat(display.getText() + "");
+                resta = true;
+                display.setText(null);
+            }
+        });
+
+        btnPor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                valor1 = Float.parseFloat(display.getText() + "");
+                multiplicacion = true;
+                display.setText(null);
+            }
+        });
+
+        btnDividido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                valor1 = Float.parseFloat(display.getText() + "");
+                division = true;
+                display.setText(null);
+            }
+        });
 
 
 
+        btnPorciento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                valor1 = Float.parseFloat(display.getText() + "");
+                porciento = true;
+                display.setText(null);
+            }
+        });
+
+
+        btnIgual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                valor2 = Float.parseFloat(display.getText() + "");
+                if(suma == true){
+                    display.setText(valor1+valor2+"");
+                    suma = false;
+                }
+                if(resta == true){
+                    display.setText(valor1-valor2+"");
+                    resta = false;
+                }
+                if(multiplicacion == true){
+                    display.setText(valor1*valor2+"");
+                    multiplicacion = false;
+                }
+                if(division == true){
+                    display.setText(valor1/valor2+"");
+                    division = false;
+                }
+                if(porciento == true){
+                    display.setText(valor1*(valor2/100)+"");
+                    porciento = false;
+                }
+            }
+        });
+
+        btnRaiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                display.setText(Math.sqrt(Float.parseFloat(display.getText() + ""))+"");
+            }
+        });
+
+        btnBorrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(display.getText().length()>0){
+                    display.setText(display.getText().subSequence(0,display.getText().length()-1));
+                }
+            }
+        });
     }
 
     @Override
