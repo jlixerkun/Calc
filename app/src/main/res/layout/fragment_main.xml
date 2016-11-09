@@ -42,26 +42,14 @@
             android:padding="1dp"
             android:layout_height="match_parent"
             android:textSize="@dimen/font_size_large"
-            android:text="@string/porciento"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:id="@+id/btnPorciento"
-            tools:ignore="ButtonStyle"
-            android:background="@drawable/mycalc_operatebtn_bg"
-            android:elegantTextHeight="true"
-            android:textColor="@color/colorlightBg" />
-
-        <Button
-            android:padding="1dp"
-            android:layout_height="match_parent"
-            android:textSize="@dimen/font_size_large"
-            android:text="@string/raiz"
+            android:text="Salir"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:id="@+id/btnRaiz"
             tools:ignore="ButtonStyle"
             android:background="@drawable/mycalc_operatebtn_bg"
             android:textColor="@color/colorlightBg"/>
+
         <Button
             android:padding="1dp"
             android:layout_height="match_parent"
@@ -74,6 +62,7 @@
             android:background="@drawable/mycalc_dangerbtn_bg"
             android:textStyle="normal|bold"
             android:textColor="@android:color/background_light" />
+
         <Button
             android:padding="1dp"
             android:layout_height="match_parent"
