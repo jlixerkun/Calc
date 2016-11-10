@@ -5,4 +5,16 @@
     <string name="raiz">√</string>
     <string name="cero">C</string>
     <string name="borrar">borrar</string>
+
+    <!--Icons-->
+    <!--fa-bomb [&#xf1e2;]-->
+    <string name="fa_bomb">&#xf1e2;</string>
+    <!-- fa-flash (alias) [&#xf0e7;]-->
+    <string name="fa_flash">&#xf0e7;</string>
+    <!--fa-power-off [&#xf011;]-->
+    <string name="fa_power_off">&#xf011;</string>
+    <!--fa-eraser [&#xf12d;]-->
+    <string name="fa_eraser">&#xf12d;</string>
+    <!--fa-step-backward [&#xf048;]-->
+    <string name="fa_step_backward">&#xf048;</string>
 </resources>

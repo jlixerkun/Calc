@@ -24,8 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=""
-            android:textAlignment="textEnd"
-            android:layout_gravity="center"
+            android:textAlignment="viewEnd"
+            android:layout_gravity="end"
             android:textSize="30sp"
             android:padding="1dp"
             android:background="@color/colorlightBg"
@@ -39,53 +39,55 @@
         android:layout_weight="1">
 
         <Button
+            android:id="@+id/btnSalida"
             android:padding="1dp"
             android:layout_height="match_parent"
             android:textSize="@dimen/font_size_large"
-            android:text="@string/porciento"
+            android:text="@string/fa_power_off"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:id="@+id/btnPorciento"
-            tools:ignore="ButtonStyle"
-            android:background="@drawable/mycalc_operatebtn_bg"
-            android:elegantTextHeight="true"
-            android:textColor="@color/colorlightBg" />
-
-        <Button
-            android:padding="1dp"
-            android:layout_height="match_parent"
-            android:textSize="@dimen/font_size_large"
-            android:text="@string/raiz"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:id="@+id/btnRaiz"
             tools:ignore="ButtonStyle"
             android:background="@drawable/mycalc_operatebtn_bg"
             android:textColor="@color/colorlightBg"/>
+
         <Button
+            android:id="@+id/btnCero"
             android:padding="1dp"
             android:layout_height="match_parent"
             android:textSize="@dimen/font_size_large"
-            android:text="@string/cero"
+            android:text="@string/fa_bomb"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:id="@+id/btnCero"
             tools:ignore="ButtonStyle"
             android:background="@drawable/mycalc_dangerbtn_bg"
             android:textStyle="normal|bold"
             android:textColor="@android:color/background_light" />
+
         <Button
+            android:id="@+id/btnBorrar"
             android:padding="1dp"
             android:layout_height="match_parent"
-            android:textSize="@dimen/font_size_small"
-            android:text="@string/borrar"
+            android:textSize="@dimen/font_size_large"
+            android:text="@string/fa_step_backward"
             android:layout_weight="1"
             android:layout_width="0dp"
             tools:ignore="ButtonStyle"
             android:background="@drawable/mycalc_warningbtn_bg"
-            android:textColor="#333333"
-            android:id="@+id/btnBorrar"
-            android:textAllCaps="false" />
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/background_light" />
+
+        <!--<Button-->
+            <!--android:padding="1dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:textSize="@dimen/font_size_small"-->
+            <!--android:text="@string/borrar"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="0dp"-->
+            <!--tools:ignore="ButtonStyle"-->
+            <!--android:background="@drawable/mycalc_warningbtn_bg"-->
+            <!--android:textColor="#333333"-->
+            <!--android:id="@+id/btnBorrar"-->
+            <!--android:textAllCaps="false" />-->
 
     </LinearLayout>
 

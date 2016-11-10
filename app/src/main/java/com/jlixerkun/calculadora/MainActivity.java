@@ -1,262 +1,209 @@
 package com.jlixerkun.calculadora;
 
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.renderscript.Double2;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.Stack;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-public class MainActivity extends AppCompatActivity {
+    boolean decimal         = false,
+            suma            = false,
+            resta           = false,
+            multiplicacion  = false,
+            division        = false,
+            raiz            = false,
+            porciento       = false;
 
-    float valor1, valor2;
-    boolean suma, resta, multiplicacion, division, raiz, porciento;
+    double resultado = 0;
+
+    Double[] numero = new Double[20];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Typeface font = Typeface.createFromAsset( getAssets(), "fontawesome-webfont.ttf" );
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
         /* Definimos los botones de la calculadora */
         final Button btnNum0 = (Button) findViewById(R.id.btnNum0);
+        btnNum0.setOnClickListener(this);
         final Button btnNum1 = (Button) findViewById(R.id.btnNum1);
+        btnNum1.setOnClickListener(this);
         final Button btnNum2 = (Button) findViewById(R.id.btnNum2);
+        btnNum2.setOnClickListener(this);
         final Button btnNum3 = (Button) findViewById(R.id.btnNum3);
+        btnNum3.setOnClickListener(this);
         final Button btnNum4 = (Button) findViewById(R.id.btnNum4);
+        btnNum4.setOnClickListener(this);
         final Button btnNum5 = (Button) findViewById(R.id.btnNum5);
+        btnNum5.setOnClickListener(this);
         final Button btnNum6 = (Button) findViewById(R.id.btnNum6);
+        btnNum6.setOnClickListener(this);
         final Button btnNum7 = (Button) findViewById(R.id.btnNum7);
+        btnNum7.setOnClickListener(this);
         final Button btnNum8 = (Button) findViewById(R.id.btnNum8);
+        btnNum8.setOnClickListener(this);
         final Button btnNum9 = (Button) findViewById(R.id.btnNum9);
+        btnNum9.setOnClickListener(this);
         final Button btnPunto = (Button) findViewById(R.id.btnPunto);
+        btnPunto.setOnClickListener(this);
 
         final Button btnMas = (Button) findViewById(R.id.btnMas);
+        btnMas.setOnClickListener(this);
         final Button btnMenos = (Button) findViewById(R.id.btnMenos);
+        btnMenos.setOnClickListener(this);
         final Button btnPor = (Button) findViewById(R.id.btnPor);
+        btnPor.setOnClickListener(this);
         final Button btnDividido = (Button) findViewById(R.id.btnDividido);
-        final Button btnPorciento = (Button) findViewById(R.id.btnPorciento);
+        btnDividido.setOnClickListener(this);
         final Button btnIgual = (Button) findViewById(R.id.btnIgual);
+        btnIgual.setOnClickListener(this);
         final Button btnBorrar = (Button) findViewById(R.id.btnBorrar);
+        btnBorrar.setTypeface(font);
+        btnBorrar.setOnClickListener(this);
         final Button btnCero= (Button) findViewById(R.id.btnCero);
-        final Button btnRaiz= (Button) findViewById(R.id.btnRaiz);
+        btnCero.setTypeface(font);
+        btnCero.setOnClickListener(this);
+        final Button btnSalida = (Button) findViewById(R.id.btnSalida);
+        btnSalida.setTypeface(font);
+        btnSalida.setOnClickListener(this);
 
-//        Definimos el display  donde se ven las operaciones
-        final TextView display = (TextView) findViewById(R.id.textViewMain);
+    }
 
+    public void onClick(View v) {
+        TextView pantalla = (TextView) findViewById(R.id.textViewMain);
+        int seleccion = v.getId();
+        String a = pantalla.getText().toString();
 
+        try {
 
-// BOTONES NUMÉRICOS
-
-
-        btnNum0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void  onClick(View view){
-                display.setText(display.getText()+"0");
-            }
-        });
-
-        btnNum1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void  onClick(View view){
-                display.setText(display.getText()+"1");
-            }
-        });
-        btnNum2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void  onClick(View view){
-                display.setText(display.getText()+"2");
-            }
-        });
-
-        btnNum3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void  onClick(View view){
-                display.setText(display.getText()+"3");
-            }
-        });
-
-        btnNum4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void  onClick(View view){
-                display.setText(display.getText()+"4");
-            }
-        });
-
-        btnNum5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void  onClick(View view){
-                display.setText(display.getText()+"5");
-            }
-        });
-
-        btnNum6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void  onClick(View view){
-                display.setText(display.getText()+"6");
-            }
-        });
-
-        btnNum7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void  onClick(View view){
-                display.setText(display.getText()+"7");
-            }
-        });
-
-        btnNum8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void  onClick(View view){
-                display.setText(display.getText()+"8");
-            }
-        });
-
-        btnNum9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void  onClick(View view){
-                display.setText(display.getText()+"9");
-            }
-        });
-
-        btnPunto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void  onClick(View view){
-                display.setText(display.getText()+".");
-            }
-        });
-
-
-//        BOTONES DE OPERACIONES
-
-        btnCero.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                display.setText(null);
-            }
-        });
-
-        btnMas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(display == null){
-                    display.setText("");
-                } else {
-                    valor1 = Float.parseFloat(display.getText() + "");
-                    suma = true;
-                    display.setText(null);
-                }
-            }
-        });
-
-        btnMenos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                valor1 = Float.parseFloat(display.getText() + "");
-                resta = true;
-                display.setText(null);
-            }
-        });
-
-        btnPor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                valor1 = Float.parseFloat(display.getText() + "");
-                multiplicacion = true;
-                display.setText(null);
-            }
-        });
-
-        btnDividido.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                valor1 = Float.parseFloat(display.getText() + "");
-                division = true;
-                display.setText(null);
-            }
-        });
-
-
-
-        btnPorciento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                valor1 = Float.parseFloat(display.getText() + "");
-                porciento = true;
-                display.setText(null);
-            }
-        });
-
-
-        btnIgual.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                valor2 = Float.parseFloat(display.getText() + "");
-                if(suma == true){
-                    display.setText(valor1+valor2+"");
+            switch (seleccion) {
+                case R.id.btnNum0:
+                    pantalla.setText(a + "0");
+                    break;
+                case R.id.btnNum1:
+                    pantalla.setText(a + "1");
+                    break;
+                case R.id.btnNum2:
+                    pantalla.setText(a + "2");
+                    break;
+                case R.id.btnNum3:
+                    pantalla.setText(a + "3");
+                    break;
+                case R.id.btnNum4:
+                    pantalla.setText(a + "4");
+                    break;
+                case R.id.btnNum5:
+                    pantalla.setText(a + "5");
+                    break;
+                case R.id.btnNum6:
+                    pantalla.setText(a + "6");
+                    break;
+                case R.id.btnNum7:
+                    pantalla.setText(a + "7");
+                    break;
+                case R.id.btnNum8:
+                    pantalla.setText(a + "8");
+                    break;
+                case R.id.btnNum9:
+                    pantalla.setText(a + "9");
+                    break;
+                case R.id.btnPunto:
+                    if (decimal == false) {
+                        pantalla.setText(a + ".");
+                        decimal = true;
+                    } else {
+                        return;
+                    }
+                    break;
+                case R.id.btnCero:
+                    pantalla.setText("");
                     suma = false;
-                }
-                if(resta == true){
-                    display.setText(valor1-valor2+"");
                     resta = false;
-                }
-                if(multiplicacion == true){
-                    display.setText(valor1*valor2+"");
                     multiplicacion = false;
-                }
-                if(division == true){
-                    display.setText(valor1/valor2+"");
                     division = false;
-                }
-                if(porciento == true){
-                    display.setText(valor1*(valor2/100)+"");
-                    porciento = false;
-                }
+                    decimal = false;
+                    break;
+                case R.id.btnBorrar:
+                    if(a.length() > 0){
+                        int longitud = a.length();
+                        a = a.substring(0,longitud-1);
+                        numero[0] = Double.parseDouble(a);
+                        pantalla.setText(a);
+                    } else {
+                        // Aquí hay un error aún.
+                        // no entra al else
+                        // revisar
+                        pantalla.setText("");
+                        numero[0]=0.0;
+                        decimal = false;
+                    }
+                    break;
+                case R.id.btnMas:
+                    suma = true;
+                    numero[0] = Double.parseDouble(a);
+                    pantalla.setText("");
+                    decimal = false;
+                    break;
+                case R.id.btnMenos:
+                    resta = true;
+                    numero[0] = Double.parseDouble(a);
+                    pantalla.setText("");
+                    decimal = false;
+                    break;
+                case R.id.btnPor:
+                    multiplicacion = true;
+                    numero[0] = Double.parseDouble(a);
+                    pantalla.setText("");
+                    decimal = false;
+                    break;
+                case R.id.btnDividido:
+                    division = true;
+                    numero[0] = Double.parseDouble(a);
+                    pantalla.setText("");
+                    decimal = false;
+                    break;
+                case R.id.btnIgual:
+                    numero[1] = Double.parseDouble(a);
+
+                    if (suma) {
+                        resultado = numero[0] + numero[1];
+                        pantalla.setText(String.valueOf(resultado));
+                        suma = false;
+                    }
+                    if (resta) {
+                        resultado = numero[0] - numero[1];
+                        pantalla.setText(String.valueOf(resultado));
+                        resta = false;
+                    }
+                    if (multiplicacion) {
+                        resultado = numero[0] * numero[1];
+                        pantalla.setText(String.valueOf(resultado));
+                        multiplicacion = false;
+                    }
+                    if (division) {
+                        resultado = numero[0] / numero[1];
+                        pantalla.setText(String.valueOf(resultado));
+                        division = false;
+                    }
+                    break;
+                case R.id.btnSalida:
+                    Intent salida = new Intent(Intent.ACTION_MAIN);
+                    finish();
+                    break;
             }
-        });
-
-        btnRaiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                display.setText(Math.sqrt(Float.parseFloat(display.getText() + ""))+"");
-            }
-        });
-
-        btnBorrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(display.getText().length()>0){
-                    display.setText(display.getText().subSequence(0,display.getText().length()-1));
-                }
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        } catch (Exception e) {
+            pantalla.setText("#Error");
         }
-
-        return super.onOptionsItemSelected(item);
     }
+
 }
