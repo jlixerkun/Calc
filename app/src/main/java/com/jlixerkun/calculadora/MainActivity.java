@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Typeface font = Typeface.createFromAsset( getAssets(), "fontawesome-webfont.ttf" );
+        Typeface dosis = Typeface.createFromAsset( getAssets(), "Dosis-Regular.ttf" );
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -35,35 +36,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         /* Definimos los botones de la calculadora */
         final Button btnNum0 = (Button) findViewById(R.id.btnNum0);
+        btnNum0.setTypeface(dosis);
         btnNum0.setOnClickListener(this);
         final Button btnNum1 = (Button) findViewById(R.id.btnNum1);
+        btnNum1.setTypeface(dosis);
         btnNum1.setOnClickListener(this);
         final Button btnNum2 = (Button) findViewById(R.id.btnNum2);
+        btnNum2.setTypeface(dosis);
         btnNum2.setOnClickListener(this);
         final Button btnNum3 = (Button) findViewById(R.id.btnNum3);
+        btnNum3.setTypeface(dosis);
         btnNum3.setOnClickListener(this);
         final Button btnNum4 = (Button) findViewById(R.id.btnNum4);
+        btnNum4.setTypeface(dosis);
         btnNum4.setOnClickListener(this);
         final Button btnNum5 = (Button) findViewById(R.id.btnNum5);
+        btnNum5.setTypeface(dosis);
         btnNum5.setOnClickListener(this);
         final Button btnNum6 = (Button) findViewById(R.id.btnNum6);
+        btnNum6.setTypeface(dosis);
         btnNum6.setOnClickListener(this);
         final Button btnNum7 = (Button) findViewById(R.id.btnNum7);
+        btnNum7.setTypeface(dosis);
         btnNum7.setOnClickListener(this);
         final Button btnNum8 = (Button) findViewById(R.id.btnNum8);
+        btnNum8.setTypeface(dosis);
         btnNum8.setOnClickListener(this);
         final Button btnNum9 = (Button) findViewById(R.id.btnNum9);
+        btnNum9.setTypeface(dosis);
         btnNum9.setOnClickListener(this);
         final Button btnPunto = (Button) findViewById(R.id.btnPunto);
+        btnPunto.setTypeface(dosis);
         btnPunto.setOnClickListener(this);
 
         final Button btnMas = (Button) findViewById(R.id.btnMas);
+        btnMas.setTypeface(dosis);
         btnMas.setOnClickListener(this);
         final Button btnMenos = (Button) findViewById(R.id.btnMenos);
+        btnMenos.setTypeface(dosis);
         btnMenos.setOnClickListener(this);
         final Button btnPor = (Button) findViewById(R.id.btnPor);
+        btnPor.setTypeface(dosis);
         btnPor.setOnClickListener(this);
         final Button btnDividido = (Button) findViewById(R.id.btnDividido);
+        btnDividido.setTypeface(dosis);
         btnDividido.setOnClickListener(this);
         final Button btnIgual = (Button) findViewById(R.id.btnIgual);
         btnIgual.setOnClickListener(this);

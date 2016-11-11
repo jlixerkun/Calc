@@ -76,18 +76,6 @@
             android:textStyle="normal|bold"
             android:textColor="@android:color/background_light" />
 
-        <!--<Button-->
-            <!--android:padding="1dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:textSize="@dimen/font_size_small"-->
-            <!--android:text="@string/borrar"-->
-            <!--android:layout_weight="1"-->
-            <!--android:layout_width="0dp"-->
-            <!--tools:ignore="ButtonStyle"-->
-            <!--android:background="@drawable/mycalc_warningbtn_bg"-->
-            <!--android:textColor="#333333"-->
-            <!--android:id="@+id/btnBorrar"-->
-            <!--android:textAllCaps="false" />-->
 
     </LinearLayout>
 
@@ -97,33 +85,34 @@
         android:orientation="horizontal"
         android:layout_weight="1">
         <Button
+            android:id="@+id/btnNum7"
             android:layout_height="match_parent"
             android:textSize="@dimen/font_size_large"
             android:text="7"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:id="@+id/btnNum7"
             tools:ignore="ButtonStyle"
             android:background="@drawable/mycalc_numberbtn_bg" />
         <Button
+            android:id="@+id/btnNum8"
             android:layout_height="match_parent"
             android:textSize="@dimen/font_size_large"
             android:text="8"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:id="@+id/btnNum8"
             tools:ignore="ButtonStyle"
             android:background="@drawable/mycalc_numberbtn_bg" />
         <Button
+            android:id="@+id/btnNum9"
             android:layout_height="match_parent"
             android:textSize="@dimen/font_size_large"
             android:text="9"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:id="@+id/btnNum9"
             tools:ignore="ButtonStyle"
             android:background="@drawable/mycalc_numberbtn_bg" />
         <Button
+            android:id="@+id/btnMas"
             android:layout_height="match_parent"
             android:textSize="@dimen/font_size_large"
             android:text="+"
@@ -132,7 +121,7 @@
             tools:ignore="ButtonStyle"
             android:background="@drawable/mycalc_operatebtn_bg"
             android:textColor="@color/colorlightBg"
-            android:id="@+id/btnMas" />
+            />
 
     </LinearLayout>
 
@@ -142,34 +131,36 @@
         android:orientation="horizontal"
         android:layout_weight="1">
         <Button
+            android:id="@+id/btnNum4"
             android:layout_height="match_parent"
             android:textSize="@dimen/font_size_large"
             android:text="4"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:id="@+id/btnNum4"
             tools:ignore="ButtonStyle"
             android:background="@drawable/mycalc_numberbtn_bg" />
         <Button
+            android:id="@+id/btnNum5"
             android:layout_height="match_parent"
             android:textSize="@dimen/font_size_large"
             android:text="5"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:id="@+id/btnNum5"
             tools:ignore="ButtonStyle"
             android:background="@drawable/mycalc_numberbtn_bg" />
         <Button
+            android:id="@+id/btnNum6"
             android:layout_height="match_parent"
             android:textSize="@dimen/font_size_large"
             android:text="6"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:id="@+id/btnNum6"
             tools:ignore="ButtonStyle"
             android:background="@drawable/mycalc_numberbtn_bg" />
 
+        android:textColor="@color/colorlightBg"
         <Button
+            android:id="@+id/btnMenos"
             android:layout_height="match_parent"
             android:textSize="@dimen/font_size_large"
             android:text="-"
@@ -177,8 +168,7 @@
             android:layout_width="match_parent"
             tools:ignore="ButtonStyle"
             android:background="@drawable/mycalc_operatebtn_bg"
-            android:textColor="@color/colorlightBg"
-            android:id="@+id/btnMenos" />
+            />
 
     </LinearLayout>
     <LinearLayout
@@ -187,28 +177,28 @@
         android:orientation="horizontal"
         android:layout_weight="1">
         <Button
+            android:id="@+id/btnNum1"
             android:layout_height="match_parent"
             android:textSize="@dimen/font_size_large"
             android:text="1"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:id="@+id/btnNum1"
             android:background="@drawable/mycalc_numberbtn_bg" />
         <Button
+            android:id="@+id/btnNum2"
             android:layout_height="match_parent"
             android:textSize="@dimen/font_size_large"
             android:text="2"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:id="@+id/btnNum2"
             android:background="@drawable/mycalc_numberbtn_bg" />
         <Button
+            android:id="@+id/btnNum3"
             android:layout_height="match_parent"
             android:textSize="@dimen/font_size_large"
             android:text="3"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:id="@+id/btnNum3"
             android:background="@drawable/mycalc_numberbtn_bg" />
 
         <Button
